@@ -1,14 +1,13 @@
-# 🗡️ My Awesome Mod Name
+# 🗡️ PersianFoods & Snacks
+Welcome to PersianFoods, the first-ever Minecraft Forge mod dedicated to bringing the rich, vibrant flavors of Iranian cuisine to Minecraft! From traditional dishes and drinks to nostalgic childhood snacks, this mod introduces a delicious variety of authentic Persian treats and drinks to spice up your survival adventures.
 
-Welcome to the GitHub repository for **My Awesome Mod**! This is a Forge mod for Minecraft that adds exciting new features.
-
-## ✨ Features
-* **New Ores:** Find custom ores deep underground.
-* **Epic Weapons:** Craft swords with unique abilities.
-* **New Biome:** Explore the Whispering Woods.
+## 🛍️ Currently Available Items
+* **Drinks:** ZamZam Cola, ZamZam Lemonade, ZamZam Fanta, Doogh
+* **Snacks:** Pofak Namaki, Titap, Moeinipour Cake
+* **Dishes:** Chicken Olivieh
 
 ## 📦 Installation
-1. Download [Minecraft Forge](https://files.minecraftforge.net/).
+1. Download [Minecraft](https://www.minecraft.net/en-us/download). Version 1.20.1 / Forge 47.4.20
 2. Download the latest release of this mod from the [Releases tab](../../releases).
 3. Drop the `.jar` file into your `/.minecraft/mods` folder.
 4. Launch the game and enjoy!
