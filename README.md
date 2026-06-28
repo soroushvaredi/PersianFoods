@@ -15,5 +15,20 @@ Welcome to PersianFoods, the first-ever Minecraft Forge mod dedicated to bringin
 ## 🛠️ Building from Source
 While you are welcome to build the project from source, we do not recommend doing so for regular gameplay. The repository is under active development, and the latest source code may be unstable or contain bugs.
 
-## ⚖️ Copyright
+## ⚖️ License and Copyright
+
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**. 
+
+**You are free to:**
+* Play with, modify, and distribute this mod.
+* Include this mod in modpacks (including those that are monetized).
+* Use the source code to learn or create your own projects.
+
+**Under the following conditions:**
+* **Copyleft:** If you modify and distribute this code, your derivative work must also be open-source and licensed under GPL-3.0.
+* **Credit:** You must include the original copyright notice and license.
+* **State Changes:** You must indicate if you modified the original files.
+
+*Note: This software is provided "as is", without warranty of any kind. The author is not liable for any game-breaking bugs or corrupted save files.*
+
 
