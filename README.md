@@ -13,8 +13,4 @@ Welcome to PersianFoods, the first-ever Minecraft Forge mod dedicated to bringin
 4. Launch the game and enjoy!
 
 ## 🛠️ Building from Source
-If you want to compile this mod yourself:
-1. Clone the repository.
-2. Open your command line / terminal in the folder.
-3. Run `gradlew build` (or `./gradlew build` on Mac/Linux).
-4. You will find the compiled mod in `build/libs`.
+While you are welcome to build the project from source, we do not recommend doing so for regular gameplay. The repository is under active development, and the latest source code may be unstable or contain bugs.
