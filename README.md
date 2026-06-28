@@ -1,4 +1,4 @@
-# 🗡️ PersianFoods & Snacks
+# 🗡️ PersianFoods Mod
 Welcome to PersianFoods, the first-ever Minecraft Forge mod dedicated to bringing the rich, vibrant flavors of Iranian cuisine to Minecraft! From traditional dishes and drinks to nostalgic childhood snacks, this mod introduces a delicious variety of authentic Persian treats and drinks to spice up your survival adventures.
 
 ## 🛍️ Currently Available Items
