@@ -1,15 +1,15 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="All rights reserved"
+license="All rights reserved under GPL-3.0"
 
 [[mods]]
 modId="persiansnacks"
-version="1.0.0"
-displayName="Persian Snacks"
+version="1.0.1"
+displayName="PersianFood Mod"
 logoFile="icon.png"
 credits="Special thanks to Patan Development for their support!"
 authors="Roham Pilpayeh, Soroush Varedi"
-description="Adds delicious Persian snacks like Olivieh, Titap, Pofak Namaki, and ZamZam drinks! Created by Roham Pilpayeh and Soroush Varedi. Special thanks to Patan Development."
+description="Adds delicious Persian snacks like Olivieh, Titap, Pofak Namaki, and ZamZam drinks! Created by Roham Pilpayeh and Soroush Varedi."
 
 [[dependencies.persiansnacks]]
 modId="forge"
