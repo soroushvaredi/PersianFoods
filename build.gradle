@@ -1,0 +1,109 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'Forge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+        maven {
+            name = 'SpongePowered'
+            url = 'https://repo.spongepowered.org/repository/maven-public/'
+        }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+    }
+}
+
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+}
+
+version = '1.0.0'
+group = 'com.example.examplemod'
+archivesBaseName = 'persiansnacks'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.mojang', 'debug'
+            mods {
+                persiansnacks {
+                    source sourceSets.main
+                }
+            }
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.mojang', 'debug'
+            mods {
+                persiansnacks {
+                    source sourceSets.main
+                }
+            }
+        }
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.mojang', 'debug'
+            args '--mod', 'persiansnacks', '--all', '--output', file('src/generated/resources/')
+            mods {
+                persiansnacks {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Forge'
+        url = 'https://maven.minecraftforge.net/'
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.20'
+}
+
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def intoTargets = ["$rootDir/out/production/resources/", "$rootDir/out/production/${project.name}.main/", "$rootDir/bin/main/"]
+
+processResources {
+    inputs.properties version: project.version, mod_id: 'persiansnacks'
+    filesMatching(resourceTargets) {
+        expand version: project.version, mod_id: 'persiansnacks'
+    }
+
+    intoTargets.each { target ->
+        if (file(target).exists()) {
+            copy {
+                from(sourceSets.main.resources)
+                into target
+            }
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": "persiansnacks",
+                "Specification-Vendor": "example",
+                "Specification-Version": "1",
+                "Implementation-Title": project.name,
+                "Implementation-Version": project.version,
+                "Implementation-Vendor": "example"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
