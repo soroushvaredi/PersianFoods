@@ -14,3 +14,6 @@ Welcome to PersianFoods, the first-ever Minecraft Forge mod dedicated to bringin
 
 ## 🛠️ Building from Source
 While you are welcome to build the project from source, we do not recommend doing so for regular gameplay. The repository is under active development, and the latest source code may be unstable or contain bugs.
+
+## ⚖️ Copyright
+
