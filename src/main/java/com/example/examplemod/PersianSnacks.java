@@ -39,20 +39,19 @@ public class PersianSnacks {
     // SNACKS
     // ============================================
 
-    // OLIVIEH — Potato, mayonnaise, pickles, chicken
-    // Buffed: More nutrition, stronger effects
+    // OLIVIEH
     public static final RegistryObject<Item> OLIVIEH = ITEMS.register("olivieh",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
-                            .nutrition(12)                         // More filling
-                            .saturationMod(1.6F)                   // Very satisfying
-                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 2), 1.0F)   // Speed II (carbs)
-                            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 120, 1), 0.8F)     // Regen I (chicken protein)
-                            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0), 0.5F)     // Strength I (protein)
+                            .nutrition(12)
+                            .saturationMod(1.6F)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 2), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 120, 1), 0.8F)
+                            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0), 0.5F)
                             .build())
                     .stacksTo(16)));
 
-    // MOEINI POOR CAKE — Cake dessert
+    // MOEINI POOR CAKE
     public static final RegistryObject<Item> MOEINI_POOR = ITEMS.register("moeini_poor",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -63,92 +62,138 @@ public class PersianSnacks {
                             .build())
                     .stacksTo(16)));
 
-    // POFAK NAMAKI PACKAGED — Salty snack (4-5 pieces)
-    // MORE OP than regular foods!
+    // RANGARANG PACKAGED
+    public static final RegistryObject<Item> RANGARANG_PACKAGED = ITEMS.register("rangarang_packaged",
+            () -> new Item(new Item.Properties()
+                    .stacksTo(64)) {
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+                    ItemStack stack = player.getItemInHand(hand);
+                    
+                    if (!level.isClientSide) {
+                        String[] messages = {
+                            "§e رنگارنگ باز شد! وای چه بوی خوبی!",
+                            "§6 رنگارنگ = خوشمزه‌ترین وافری که خوردی!",
+                            "§a وایسا ببینم چیه! آهان رنگارنگ!",
+                            "§e رنگارنگ وافری پر از عشق و انرژی!",
+                            "§6 با رنگارنگ رنگین کمان رو ببین!",
+                            "§a رنگارنگ = خنده + انرژی!",
+                            "§e این وافره یا بهشته؟! رنگارنگ!",
+                            "§6 رنگارنگ رو باز کن تا دنیا رنگین بشه!",
+                            "§a یه رنگارنگ بخور قشنگ بشو!",
+                            "§e رنگارنگ = طعم خونه، طعم ایران!"
+                        };
+                        String randomMessage = messages[level.random.nextInt(messages.length)];
+                        player.displayClientMessage(
+                            Component.literal(randomMessage), 
+                            true
+                        );
+                        
+                        ItemStack openedRangarang = new ItemStack(RANGARANG_UNPACKED.get(), 1);
+                        player.getInventory().add(openedRangarang);
+                        stack.shrink(1);
+                    }
+                    
+                    return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+                }
+            });
+
+    // RANGARANG UNPACKED
+    public static final RegistryObject<Item> RANGARANG_UNPACKED = ITEMS.register("rangarang_unpacked",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(5)
+                            .saturationMod(0.8F)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 1), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 80, 0), 0.5F)
+                            .build())
+                    .stacksTo(64)));
+
+    // POFAK NAMAKI PACKAGED
     public static final RegistryObject<Item> POFAK_NAMAKI_PACKAGED = ITEMS.register("pofak_namaki_packaged",
             () -> new Item(new Item.Properties()
                     .stacksTo(64)) {
                 @Override
                 public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
                     ItemStack stack = player.getItemInHand(hand);
-
+                    
                     if (!level.isClientSide) {
                         String[] messages = {
-                                "§e پفک نمکی = انرژی!",
-                                "§6 پفک نمکی خوشمزه!",
-                                "§a چقدر پفک داری میخوری؟!",
-                                "§e پفک نمکی = زندگی!",
-                                "§6 با پفک نمکی پرواز کن!",
-                                "§a پفک نمکی = قدرت!",
-                                "§e شکم سیر نمیشه با پفک؟!",
-                                "§6 پفک نمکی = عشق!"
+                            "§e پفک نمکی = انرژی!",
+                            "§6 پفک نمکی خوشمزه!",
+                            "§a چقدر پفک داری میخوری؟!",
+                            "§e پفک نمکی = زندگی!",
+                            "§6 با پفک نمکی پرواز کن!",
+                            "§a پفک نمکی = قدرت!",
+                            "§e شکم سیر نمیشه با پفک؟!",
+                            "§6 پفک نمکی = عشق!"
                         };
                         String randomMessage = messages[level.random.nextInt(messages.length)];
                         player.displayClientMessage(
-                                Component.literal(randomMessage),
-                                true
+                            Component.literal(randomMessage), 
+                            true
                         );
-
-                        int randomAmount = 4 + RANDOM.nextInt(2); // 4-5 inclusive
+                        
+                        int randomAmount = 4 + RANDOM.nextInt(2);
                         ItemStack openedPofak = new ItemStack(POFAK_NAMAKI_UNPACKED.get(), randomAmount);
                         player.getInventory().add(openedPofak);
                         stack.shrink(1);
                     }
-
+                    
                     return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
                 }
             });
 
-    // POFAK NAMAKI UNPACKED — BUFFED! More OP than regular foods
+    // POFAK NAMAKI UNPACKED
     public static final RegistryObject<Item> POFAK_NAMAKI_UNPACKED = ITEMS.register("pofak_namaki_unpacked",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
-                            .nutrition(8)                         // More filling
-                            .saturationMod(1.2F)                  // Very satisfying
-                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 2), 1.0F)   // Speed II
-                            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 300, 2), 1.0F)        // Haste II (salt = energy)
-                            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 300, 1), 0.8F)     // Strength I
-                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 200, 1), 0.7F)            // Jump Boost I
-                            .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 60, 0), 0.2F)          // Small weakness (too much salt)
+                            .nutrition(8)
+                            .saturationMod(1.2F)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 2), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 300, 2), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 300, 1), 0.8F)
+                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 200, 1), 0.7F)
+                            .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 60, 0), 0.2F)
                             .build())
                     .stacksTo(64)));
 
-    // TITAP PACKAGED — UNCHANGED
+    // TITAP PACKAGED
     public static final RegistryObject<Item> TITAP_PACKAGED = ITEMS.register("titap_packaged",
             () -> new Item(new Item.Properties()
                     .stacksTo(64)) {
                 @Override
                 public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
                     ItemStack stack = player.getItemInHand(hand);
-
+                    
                     if (!level.isClientSide) {
                         String[] messages = {
-                                "§e مگه رژیم نداری؟",
-                                "§6 تیتاپ = قدرت!",
-                                "§6 چقدر میخوری؟!",
-                                "§e شکم سیر نمیشه؟!",
-                                "§6 بازم میخوای؟!",
-                                "§a تیتاپ = انرژی!",
-                                "§a تیتاپ = زندگی!",
-                                "§b با تیتاپ پرواز کن!",
-                                "§6 سلطان تیتاپ!"
+                            "§e مگه رژیم نداری؟",
+                            "§6 تیتاپ = قدرت!",
+                            "§6 چقدر میخوری؟!",
+                            "§e شکم سیر نمیشه؟!",
+                            "§6 بازم میخوای؟!",
+                            "§a تیتاپ = انرژی!",
+                            "§a تیتاپ = زندگی!",
+                            "§b با تیتاپ پرواز کن!",
+                            "§6 سلطان تیتاپ!"
                         };
                         String randomMessage = messages[level.random.nextInt(messages.length)];
                         player.displayClientMessage(
-                                Component.literal(randomMessage),
-                                true
+                            Component.literal(randomMessage), 
+                            true
                         );
-
+                        
                         ItemStack openedTitap = new ItemStack(TITAP_UNPACKED.get(), 1);
                         player.getInventory().add(openedTitap);
                         stack.shrink(1);
                     }
-
+                    
                     return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
                 }
             });
 
-    // TITAP UNPACKED — MOST OP ITEM (GOD MODE) — UNCHANGED
+    // TITAP UNPACKED
     public static final RegistryObject<Item> TITAP_UNPACKED = ITEMS.register("titap_unpacked",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -258,6 +303,8 @@ public class PersianSnacks {
                     .displayItems((params, output) -> {
                         output.accept(OLIVIEH.get());
                         output.accept(MOEINI_POOR.get());
+                        output.accept(RANGARANG_PACKAGED.get());
+                        output.accept(RANGARANG_UNPACKED.get());
                         output.accept(POFAK_NAMAKI_PACKAGED.get());
                         output.accept(POFAK_NAMAKI_UNPACKED.get());
                         output.accept(TITAP_PACKAGED.get());
