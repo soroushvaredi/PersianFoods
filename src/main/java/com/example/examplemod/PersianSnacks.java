@@ -72,16 +72,16 @@ public class PersianSnacks {
                     
                     if (!level.isClientSide) {
                         String[] messages = {
-                            "§e رنگارنگ باز شد! وای چه بوی خوبی!",
-                            "§6 رنگارنگ = خوشمزه‌ترین وافری که خوردی!",
-                            "§a وایسا ببینم چیه! آهان رنگارنگ!",
-                            "§e رنگارنگ وافری پر از عشق و انرژی!",
-                            "§6 با رنگارنگ رنگین کمان رو ببین!",
-                            "§a رنگارنگ = خنده + انرژی!",
-                            "§e این وافره یا بهشته؟! رنگارنگ!",
-                            "§6 رنگارنگ رو باز کن تا دنیا رنگین بشه!",
-                            "§a یه رنگارنگ بخور قشنگ بشو!",
-                            "§e رنگارنگ = طعم خونه، طعم ایران!"
+                            "§e \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0628\u0627\u0632 \u0634\u062f! \u0648\u0627\u06cc \u0686\u0647 \u0628\u0648\u06cc \u062e\u0648\u0628\u06cc!",
+                            "§6 \u0631\u0646\u06af\u0627\u0631\u0646\u06af = \u062e\u0648\u0634\u0645\u0632\u0647\u200c\u062a\u0631\u06cc\u0646 \u0648\u0627\u0641\u0631\u06cc \u06a9\u0647 \u062e\u0648\u0631\u062f\u06cc!",
+                            "§a \u0648\u0627\u06cc\u0633\u0627 \u0628\u0628\u06cc\u0646\u0645 \u0686\u06cc\u0647! \u0622\u0647\u0627\u0646 \u0631\u0646\u06af\u0627\u0631\u0646\u06af!",
+                            "§e \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0648\u0627\u0641\u0631\u06cc \u067e\u0631 \u0627\u0632 \u0639\u0634\u0642 \u0648 \u0627\u0646\u0631\u0698\u06cc!",
+                            "§6 \u0628\u0627 \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0631\u0646\u06af\u06cc\u0646 \u06a9\u0645\u0627\u0646 \u0631\u0648 \u0628\u0628\u06cc\u0646!",
+                            "§a \u0631\u0646\u06af\u0627\u0631\u0646\u06af = \u062e\u0646\u062f\u0647 + \u0627\u0646\u0631\u0698\u06cc!",
+                            "§e \u0627\u06cc\u0646 \u0648\u0627\u0641\u0631\u0647 \u06cc\u0627 \u0628\u0647\u0634\u062a\u0647\u061f! \u0631\u0646\u06af\u0627\u0631\u0646\u06af!",
+                            "§6 \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0631\u0648 \u0628\u0627\u0632 \u06a9\u0646 \u062a\u0627 \u062f\u0646\u06cc\u0627 \u0631\u0646\u06af\u06cc\u0646 \u0628\u0634\u0647!",
+                            "§a \u06cc\u0647 \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0628\u062e\u0648\u0631 \u0642\u0634\u0646\u06af \u0628\u0634\u0648!",
+                            "§e \u0631\u0646\u06af\u0627\u0631\u0646\u06af = \u0637\u0639\u0645 \u062e\u0648\u0646\u0647\u060c \u0637\u0639\u0645 \u0627\u06cc\u0631\u0627\u0646!"
                         };
                         String randomMessage = messages[level.random.nextInt(messages.length)];
                         player.displayClientMessage(
@@ -119,14 +119,14 @@ public class PersianSnacks {
                     
                     if (!level.isClientSide) {
                         String[] messages = {
-                            "§e پفک نمکی = انرژی!",
-                            "§6 پفک نمکی خوشمزه!",
-                            "§a چقدر پفک داری میخوری؟!",
-                            "§e پفک نمکی = زندگی!",
-                            "§6 با پفک نمکی پرواز کن!",
-                            "§a پفک نمکی = قدرت!",
-                            "§e شکم سیر نمیشه با پفک؟!",
-                            "§6 پفک نمکی = عشق!"
+                            "§e \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0627\u0646\u0631\u0698\u06cc!",
+                            "§6 \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc \u062e\u0648\u0634\u0645\u0632\u0647!",
+                            "§a \u0686\u0642\u062f\u0631 \u067e\u0641\u06a9 \u062f\u0627\u0631\u06cc \u0645\u06cc\u062e\u0648\u0631\u06cc\u061f!",
+                            "§e \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0632\u0646\u062f\u06af\u06cc!",
+                            "§6 \u0628\u0627 \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc \u067e\u0631\u0648\u0627\u0632 \u06a9\u0646!",
+                            "§a \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0642\u062f\u0631\u062a!",
+                            "§e \u0634\u06a9\u0645 \u0633\u06cc\u0631 \u0646\u0645\u06cc\u0634\u0647 \u0628\u0627 \u067e\u0641\u06a9\u061f!",
+                            "§6 \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0639\u0634\u0642!"
                         };
                         String randomMessage = messages[level.random.nextInt(messages.length)];
                         player.displayClientMessage(
@@ -168,15 +168,15 @@ public class PersianSnacks {
                     
                     if (!level.isClientSide) {
                         String[] messages = {
-                            "§e مگه رژیم نداری؟",
-                            "§6 تیتاپ = قدرت!",
-                            "§6 چقدر میخوری؟!",
-                            "§e شکم سیر نمیشه؟!",
-                            "§6 بازم میخوای؟!",
-                            "§a تیتاپ = انرژی!",
-                            "§a تیتاپ = زندگی!",
-                            "§b با تیتاپ پرواز کن!",
-                            "§6 سلطان تیتاپ!"
+                            "§e \u0645\u06af\u0647 \u0631\u0698\u06cc\u0645 \u0646\u062f\u0627\u0631\u06cc\u061f",
+                            "§6 \u062a\u06cc\u062a\u0627\u067e = \u0642\u062f\u0631\u062a!",
+                            "§6 \u0686\u0642\u062f\u0631 \u0645\u06cc\u062e\u0648\u0631\u06cc\u061f!",
+                            "§e \u0634\u06a9\u0645 \u0633\u06cc\u0631 \u0646\u0645\u06cc\u0634\u0647\u061f!",
+                            "§6 \u0628\u0627\u0632\u0645 \u0645\u06cc\u062e\u0648\u0627\u06cc\u061f!",
+                            "§a \u062a\u06cc\u062a\u0627\u067e = \u0627\u0646\u0631\u0698\u06cc!",
+                            "§a \u062a\u06cc\u062a\u0627\u067e = \u0632\u0646\u062f\u06af\u06cc!",
+                            "§b \u0628\u0627 \u062a\u06cc\u062a\u0627\u067e \u067e\u0631\u0648\u0627\u0632 \u06a9\u0646!",
+                            "§6 \u0633\u0644\u0637\u0627\u0646 \u062a\u06cc\u062a\u0627\u067e!"
                         };
                         String randomMessage = messages[level.random.nextInt(messages.length)];
                         player.displayClientMessage(
@@ -298,7 +298,7 @@ public class PersianSnacks {
 
     public static final RegistryObject<CreativeModeTab> SNACKS_TAB = CREATIVE_TABS.register("snacks_tab",
             () -> CreativeModeTab.builder()
-                    .title(Component.literal("Persian Snacks (اسنک های ایرانی)"))
+                    .title(Component.literal("Persian Snacks (\u0627\u0633\u0646\u06a9 \u0647\u0627\u06cc \u0627\u06cc\u0631\u0627\u0646\u06cc)"))
                     .icon(() -> new ItemStack(OLIVIEH.get()))
                     .displayItems((params, output) -> {
                         output.accept(OLIVIEH.get());
@@ -314,7 +314,7 @@ public class PersianSnacks {
 
     public static final RegistryObject<CreativeModeTab> DRINKS_TAB = CREATIVE_TABS.register("drinks_tab",
             () -> CreativeModeTab.builder()
-                    .title(Component.literal("Persian Drinks (نوشیدنی های ایرانی)"))
+                    .title(Component.literal("Persian Drinks (\u0646\u0648\u0634\u06cc\u062f\u0646\u06cc \u0647\u0627\u06cc \u0627\u06cc\u0631\u0627\u0646\u06cc)"))
                     .icon(() -> new ItemStack(ZAMZAM_COLA.get()))
                     .displayItems((params, output) -> {
                         output.accept(ZAMZAM_COLA.get());
