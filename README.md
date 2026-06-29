@@ -3,7 +3,7 @@ Welcome to PersianFoods, the first-ever Minecraft Forge mod dedicated to bringin
 
 ## 🛍️ Currently Available Items
 * **Drinks:** ZamZam Cola, ZamZam Lemonade, ZamZam Fanta, Doogh
-* **Snacks:** Pofak Namaki, Titap, Moeinipour Cake
+* **Snacks:** Pofak Namaki, Titap, Moeinipour Cake, Rangarang Mino
 * **Dishes:** Chicken Olivieh
 
 ## 📦 Installation
