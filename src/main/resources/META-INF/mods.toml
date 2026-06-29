@@ -3,7 +3,7 @@ loaderVersion="[47,)"
 license="All rights reserved under GPL-3.0"
 
 [[mods]]
-modId="persianfoods"
+modId="persiansnacks"
 version="1.0.2"
 displayName="PersianFood Mod"
 logoFile="icon.png"
