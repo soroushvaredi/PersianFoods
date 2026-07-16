@@ -36,7 +36,6 @@ public class PersianSnacks {
 
     private static final Random RANDOM = new Random();
 
-    // Snacks
     public static final RegistryObject<Item> OLIVIEH = ITEMS.register("olivieh",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -186,7 +185,43 @@ public class PersianSnacks {
                 }
             });
 
-    // Drinks
+    public static final RegistryObject<Item> BISCUIT_MADAR_PACKAGED = ITEMS.register("biscuit_madar_packaged",
+            () -> new Item(new Item.Properties().stacksTo(64)) {
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+                    ItemStack stack = player.getItemInHand(hand);
+                    if (!level.isClientSide) {
+                        String[] keys = {
+                            "message.persiansnacks.biscuit_madar.1",
+                            "message.persiansnacks.biscuit_madar.2",
+                            "message.persiansnacks.biscuit_madar.3",
+                            "message.persiansnacks.biscuit_madar.4",
+                            "message.persiansnacks.biscuit_madar.5",
+                            "message.persiansnacks.biscuit_madar.6",
+                            "message.persiansnacks.biscuit_madar.7",
+                            "message.persiansnacks.biscuit_madar.8",
+                            "message.persiansnacks.biscuit_madar.9",
+                            "message.persiansnacks.biscuit_madar.10"
+                        };
+                        String key = keys[level.random.nextInt(keys.length)];
+                        player.displayClientMessage(Component.translatable(key), true);
+                        player.getInventory().add(new ItemStack(BISCUIT_MADAR_UNPACKED.get(), 6));
+                        stack.shrink(1);
+                    }
+                    return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+                }
+            });
+
+    public static final RegistryObject<Item> BISCUIT_MADAR_UNPACKED = ITEMS.register("biscuit_madar_unpacked",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(4)
+                            .saturationMod(0.6F)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 120, 0), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 80, 0), 0.6F)
+                            .build())
+                    .stacksTo(64)));
+
     public static final RegistryObject<Item> ZAMZAM_COLA = ITEMS.register("zamzam_cola",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -251,7 +286,6 @@ public class PersianSnacks {
                 }
             });
 
-    // Creative Tabs
     public static final RegistryObject<CreativeModeTab> SNACKS_TAB = CREATIVE_TABS.register("snacks_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.literal("Persian Foods (\u0627\u0633\u0646\u06a9 \u0647\u0627\u06cc \u0627\u06cc\u0631\u0627\u0646\u06cc)"))
@@ -265,6 +299,8 @@ public class PersianSnacks {
                         output.accept(POFAK_NAMAKI_UNPACKED.get());
                         output.accept(TITAP_PACKAGED.get());
                         output.accept(TITAP_UNPACKED.get());
+                        output.accept(BISCUIT_MADAR_PACKAGED.get());
+                        output.accept(BISCUIT_MADAR_UNPACKED.get());
                     })
                     .build());
 
