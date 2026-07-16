@@ -25,6 +25,7 @@ import java.util.Random;
 
 @Mod(PersianSnacks.MOD_ID)
 public class PersianSnacks {
+
     public static final String MOD_ID = "persiansnacks";
 
     private static final DeferredRegister<Item> ITEMS =
@@ -35,11 +36,7 @@ public class PersianSnacks {
 
     private static final Random RANDOM = new Random();
 
-    // ============================================
-    // SNACKS
-    // ============================================
-
-    // OLIVIEH
+    // Snacks
     public static final RegistryObject<Item> OLIVIEH = ITEMS.register("olivieh",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -51,7 +48,6 @@ public class PersianSnacks {
                             .build())
                     .stacksTo(16)));
 
-    // MOEINI POOR CAKE
     public static final RegistryObject<Item> MOEINI_POOR = ITEMS.register("moeini_poor",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -62,43 +58,33 @@ public class PersianSnacks {
                             .build())
                     .stacksTo(16)));
 
-    // RANGARANG PACKAGED
     public static final RegistryObject<Item> RANGARANG_PACKAGED = ITEMS.register("rangarang_packaged",
-            () -> new Item(new Item.Properties()
-                    .stacksTo(64)) {
+            () -> new Item(new Item.Properties().stacksTo(64)) {
                 @Override
                 public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
                     ItemStack stack = player.getItemInHand(hand);
-                    
                     if (!level.isClientSide) {
-                        String[] messages = {
-                            "§e \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0628\u0627\u0632 \u0634\u062f! \u0648\u0627\u06cc \u0686\u0647 \u0628\u0648\u06cc \u062e\u0648\u0628\u06cc!",
-                            "§6 \u0631\u0646\u06af\u0627\u0631\u0646\u06af = \u062e\u0648\u0634\u0645\u0632\u0647\u200c\u062a\u0631\u06cc\u0646 \u0648\u0627\u0641\u0631\u06cc \u06a9\u0647 \u062e\u0648\u0631\u062f\u06cc!",
-                            "§a \u0648\u0627\u06cc\u0633\u0627 \u0628\u0628\u06cc\u0646\u0645 \u0686\u06cc\u0647! \u0622\u0647\u0627\u0646 \u0631\u0646\u06af\u0627\u0631\u0646\u06af!",
-                            "§e \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0648\u0627\u0641\u0631\u06cc \u067e\u0631 \u0627\u0632 \u0639\u0634\u0642 \u0648 \u0627\u0646\u0631\u0698\u06cc!",
-                            "§6 \u0628\u0627 \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0631\u0646\u06af\u06cc\u0646 \u06a9\u0645\u0627\u0646 \u0631\u0648 \u0628\u0628\u06cc\u0646!",
-                            "§a \u0631\u0646\u06af\u0627\u0631\u0646\u06af = \u062e\u0646\u062f\u0647 + \u0627\u0646\u0631\u0698\u06cc!",
-                            "§e \u0627\u06cc\u0646 \u0648\u0627\u0641\u0631\u0647 \u06cc\u0627 \u0628\u0647\u0634\u062a\u0647\u061f! \u0631\u0646\u06af\u0627\u0631\u0646\u06af!",
-                            "§6 \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0631\u0648 \u0628\u0627\u0632 \u06a9\u0646 \u062a\u0627 \u062f\u0646\u06cc\u0627 \u0631\u0646\u06af\u06cc\u0646 \u0628\u0634\u0647!",
-                            "§a \u06cc\u0647 \u0631\u0646\u06af\u0627\u0631\u0646\u06af \u0628\u062e\u0648\u0631 \u0642\u0634\u0646\u06af \u0628\u0634\u0648!",
-                            "§e \u0631\u0646\u06af\u0627\u0631\u0646\u06af = \u0637\u0639\u0645 \u062e\u0648\u0646\u0647\u060c \u0637\u0639\u0645 \u0627\u06cc\u0631\u0627\u0646!"
+                        String[] keys = {
+                            "message.persiansnacks.rangarang.1",
+                            "message.persiansnacks.rangarang.2",
+                            "message.persiansnacks.rangarang.3",
+                            "message.persiansnacks.rangarang.4",
+                            "message.persiansnacks.rangarang.5",
+                            "message.persiansnacks.rangarang.6",
+                            "message.persiansnacks.rangarang.7",
+                            "message.persiansnacks.rangarang.8",
+                            "message.persiansnacks.rangarang.9",
+                            "message.persiansnacks.rangarang.10"
                         };
-                        String randomMessage = messages[level.random.nextInt(messages.length)];
-                        player.displayClientMessage(
-                            Component.literal(randomMessage), 
-                            true
-                        );
-                        
-                        ItemStack openedRangarang = new ItemStack(RANGARANG_UNPACKED.get(), 1);
-                        player.getInventory().add(openedRangarang);
+                        String key = keys[level.random.nextInt(keys.length)];
+                        player.displayClientMessage(Component.translatable(key), true);
+                        player.getInventory().add(new ItemStack(RANGARANG_UNPACKED.get(), 1));
                         stack.shrink(1);
                     }
-                    
                     return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
                 }
             });
 
-    // RANGARANG UNPACKED
     public static final RegistryObject<Item> RANGARANG_UNPACKED = ITEMS.register("rangarang_unpacked",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -109,42 +95,32 @@ public class PersianSnacks {
                             .build())
                     .stacksTo(64)));
 
-    // POFAK NAMAKI PACKAGED
     public static final RegistryObject<Item> POFAK_NAMAKI_PACKAGED = ITEMS.register("pofak_namaki_packaged",
-            () -> new Item(new Item.Properties()
-                    .stacksTo(64)) {
+            () -> new Item(new Item.Properties().stacksTo(64)) {
                 @Override
                 public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
                     ItemStack stack = player.getItemInHand(hand);
-                    
                     if (!level.isClientSide) {
-                        String[] messages = {
-                            "§e \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0627\u0646\u0631\u0698\u06cc!",
-                            "§6 \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc \u062e\u0648\u0634\u0645\u0632\u0647!",
-                            "§a \u0686\u0642\u062f\u0631 \u067e\u0641\u06a9 \u062f\u0627\u0631\u06cc \u0645\u06cc\u062e\u0648\u0631\u06cc\u061f!",
-                            "§e \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0632\u0646\u062f\u06af\u06cc!",
-                            "§6 \u0628\u0627 \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc \u067e\u0631\u0648\u0627\u0632 \u06a9\u0646!",
-                            "§a \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0642\u062f\u0631\u062a!",
-                            "§e \u0634\u06a9\u0645 \u0633\u06cc\u0631 \u0646\u0645\u06cc\u0634\u0647 \u0628\u0627 \u067e\u0641\u06a9\u061f!",
-                            "§6 \u067e\u0641\u06a9 \u0646\u0645\u06a9\u06cc = \u0639\u0634\u0642!"
+                        String[] keys = {
+                            "message.persiansnacks.pofak.1",
+                            "message.persiansnacks.pofak.2",
+                            "message.persiansnacks.pofak.3",
+                            "message.persiansnacks.pofak.4",
+                            "message.persiansnacks.pofak.5",
+                            "message.persiansnacks.pofak.6",
+                            "message.persiansnacks.pofak.7",
+                            "message.persiansnacks.pofak.8"
                         };
-                        String randomMessage = messages[level.random.nextInt(messages.length)];
-                        player.displayClientMessage(
-                            Component.literal(randomMessage), 
-                            true
-                        );
-                        
-                        int randomAmount = 4 + RANDOM.nextInt(2);
-                        ItemStack openedPofak = new ItemStack(POFAK_NAMAKI_UNPACKED.get(), randomAmount);
-                        player.getInventory().add(openedPofak);
+                        String key = keys[level.random.nextInt(keys.length)];
+                        player.displayClientMessage(Component.translatable(key), true);
+                        int amount = 4 + RANDOM.nextInt(2);
+                        player.getInventory().add(new ItemStack(POFAK_NAMAKI_UNPACKED.get(), amount));
                         stack.shrink(1);
                     }
-                    
                     return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
                 }
             });
 
-    // POFAK NAMAKI UNPACKED
     public static final RegistryObject<Item> POFAK_NAMAKI_UNPACKED = ITEMS.register("pofak_namaki_unpacked",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -158,42 +134,32 @@ public class PersianSnacks {
                             .build())
                     .stacksTo(64)));
 
-    // TITAP PACKAGED
     public static final RegistryObject<Item> TITAP_PACKAGED = ITEMS.register("titap_packaged",
-            () -> new Item(new Item.Properties()
-                    .stacksTo(64)) {
+            () -> new Item(new Item.Properties().stacksTo(64)) {
                 @Override
                 public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
                     ItemStack stack = player.getItemInHand(hand);
-                    
                     if (!level.isClientSide) {
-                        String[] messages = {
-                            "§e \u0645\u06af\u0647 \u0631\u0698\u06cc\u0645 \u0646\u062f\u0627\u0631\u06cc\u061f",
-                            "§6 \u062a\u06cc\u062a\u0627\u067e = \u0642\u062f\u0631\u062a!",
-                            "§6 \u0686\u0642\u062f\u0631 \u0645\u06cc\u062e\u0648\u0631\u06cc\u061f!",
-                            "§e \u0634\u06a9\u0645 \u0633\u06cc\u0631 \u0646\u0645\u06cc\u0634\u0647\u061f!",
-                            "§6 \u0628\u0627\u0632\u0645 \u0645\u06cc\u062e\u0648\u0627\u06cc\u061f!",
-                            "§a \u062a\u06cc\u062a\u0627\u067e = \u0627\u0646\u0631\u0698\u06cc!",
-                            "§a \u062a\u06cc\u062a\u0627\u067e = \u0632\u0646\u062f\u06af\u06cc!",
-                            "§b \u0628\u0627 \u062a\u06cc\u062a\u0627\u067e \u067e\u0631\u0648\u0627\u0632 \u06a9\u0646!",
-                            "§6 \u0633\u0644\u0637\u0627\u0646 \u062a\u06cc\u062a\u0627\u067e!"
+                        String[] keys = {
+                            "message.persiansnacks.titap.1",
+                            "message.persiansnacks.titap.2",
+                            "message.persiansnacks.titap.3",
+                            "message.persiansnacks.titap.4",
+                            "message.persiansnacks.titap.5",
+                            "message.persiansnacks.titap.6",
+                            "message.persiansnacks.titap.7",
+                            "message.persiansnacks.titap.8",
+                            "message.persiansnacks.titap.9"
                         };
-                        String randomMessage = messages[level.random.nextInt(messages.length)];
-                        player.displayClientMessage(
-                            Component.literal(randomMessage), 
-                            true
-                        );
-                        
-                        ItemStack openedTitap = new ItemStack(TITAP_UNPACKED.get(), 1);
-                        player.getInventory().add(openedTitap);
+                        String key = keys[level.random.nextInt(keys.length)];
+                        player.displayClientMessage(Component.translatable(key), true);
+                        player.getInventory().add(new ItemStack(TITAP_UNPACKED.get(), 1));
                         stack.shrink(1);
                     }
-                    
                     return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
                 }
             });
 
-    // TITAP UNPACKED
     public static final RegistryObject<Item> TITAP_UNPACKED = ITEMS.register("titap_unpacked",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -220,11 +186,7 @@ public class PersianSnacks {
                 }
             });
 
-    // ============================================
-    // DRINKS
-    // ============================================
-
-    // ZAMZAM COLA
+    // Drinks
     public static final RegistryObject<Item> ZAMZAM_COLA = ITEMS.register("zamzam_cola",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -241,7 +203,6 @@ public class PersianSnacks {
                 }
             });
 
-    // ZAMZAM FANTA
     public static final RegistryObject<Item> ZAMZAM_FANTA = ITEMS.register("zamzam_fanta",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -258,7 +219,6 @@ public class PersianSnacks {
                 }
             });
 
-    // ZAMZAM LEMONADE
     public static final RegistryObject<Item> ZAMZAM_LEMONADE = ITEMS.register("zamzam_lemonade",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -275,7 +235,6 @@ public class PersianSnacks {
                 }
             });
 
-    // DOOGH AB ALI
     public static final RegistryObject<Item> DOOGH_AB_ALI = ITEMS.register("doogh_ab_ali",
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder()
@@ -292,13 +251,10 @@ public class PersianSnacks {
                 }
             });
 
-    // ============================================
-    // CREATIVE TABS
-    // ============================================
-
+    // Creative Tabs
     public static final RegistryObject<CreativeModeTab> SNACKS_TAB = CREATIVE_TABS.register("snacks_tab",
             () -> CreativeModeTab.builder()
-                    .title(Component.literal("Persian Snacks (\u0627\u0633\u0646\u06a9 \u0647\u0627\u06cc \u0627\u06cc\u0631\u0627\u0646\u06cc)"))
+                    .title(Component.literal("Persian Foods (\u0627\u0633\u0646\u06a9 \u0647\u0627\u06cc \u0627\u06cc\u0631\u0627\u0646\u06cc)"))
                     .icon(() -> new ItemStack(OLIVIEH.get()))
                     .displayItems((params, output) -> {
                         output.accept(OLIVIEH.get());
@@ -324,7 +280,6 @@ public class PersianSnacks {
                     })
                     .build());
 
-    @SuppressWarnings("deprecation")
     public PersianSnacks() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventBus);
