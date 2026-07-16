@@ -4,7 +4,7 @@ license="All rights reserved under GPL-3.0"
 
 [[mods]]
 modId="persiansnacks"
-version="1.0.2"
+version="1.0.3"
 displayName="PersianFood Mod"
 logoFile="icon.png"
 credits="Special thanks to Patan Development for their support!"
